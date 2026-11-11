@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+import "../styles/components.css";
+
+import Navbar from "../components/Navbar.astro";
+import Preloader from "../components/Preloader.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#090909" />
+    <meta name="color-scheme" content="dark" />
+
+    <meta
+      name="description"
+      content="OBSCURA is an experimental digital playground exploring creativity, technology, motion and interaction."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="OBSCURA® — Beyond the Ordinary" />
+    <meta
+      property="og:description"
+      content="An experimental digital playground exploring the boundaries of creativity and technology."
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OBSCURA® — Beyond the Ordinary" />
+    <meta
+      name="twitter:description"
+      content="An experimental digital playground exploring creativity, technology and interaction."
+    />
+
+    <title>OBSCURA® — Beyond the Ordinary</title>
+  </head>
+
+  <body class="is-loading">
+    <Preloader />
+
+    <noscript>
+      <style>
+        .preloader {
+          display: none !important;
+        }
+
+        body {
+          overflow: auto !important;
+        }
+      </style>
+    </noscript>
+
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <Navbar />
+
+    <main>
+      <slot />
+    </main>
+
+    <script>
+      import "../scripts/animations.js";
+      import { initNavigation } from "../scripts/navigation.js";
+      import { initInteractions } from "../scripts/interactions.js";
+      import { initCinematic } from "../scripts/cinematic.js";
+      import { initPlayground } from "../scripts/playground.js";
+      import { initWebGL } from "../scripts/webgl.js";
+      import { initPreloader } from "../scripts/preloader.js";
+
+      initPreloader();
+
+      function initialize() {
+        initNavigation();
+        initInteractions();
+        initCinematic();
+        initPlayground();
+        initWebGL();
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initialize, {
+          once: true,
+        });
+      } else {
+        initialize();
+      }
+    </script>
+  </body>
+</html>
