@@ -349,7 +349,7 @@ body.menu-open {
 }
 
 .experiments-heading h2 {
-  margin: 75px 0 20px;
+  margin: 55px 0 15px;
   font-size: clamp(5rem, 12vw, 12rem);
   line-height: 0.78;
   letter-spacing: -0.09em;
@@ -362,7 +362,7 @@ body.menu-open {
 }
 
 .experiments-heading p {
-  margin-top: 35px;
+  margin-top: 20px;
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.1em;
@@ -373,7 +373,7 @@ body.menu-open {
   display: flex;
   width: max-content;
   gap: 25px;
-  padding: 100px 8vw 35px;
+  padding: 55px 8vw 35px;
   will-change: transform;
 }
 
@@ -1277,5 +1277,38 @@ body.is-loading {
   .footer-arrow,
   .footer-links a {
     transition: none;
+  }
+}
+
+/* EXPERIMENTS — DESKTOP VIEWPORT REFINEMENT */
+@media (min-width: 769px) {
+  .experiments {
+    padding-top: 80px;
+  }
+
+  .experiments-heading h2 {
+    margin: 35px 0 12px;
+    font-size: clamp(4rem, 8vw, 8rem);
+    line-height: 0.82;
+  }
+
+  .experiments-heading p {
+    margin-top: 15px;
+  }
+
+  .experiment-track {
+    padding-top: 35px;
+    gap: 25px;
+  }
+
+  .experiment-card {
+    flex: 0 0 55vw;
+    min-width: 380px;
+  }
+
+  .experiment-visual {
+    height: 34vh;
+    min-height: 250px;
+    max-height: 340px;
   }
 }
